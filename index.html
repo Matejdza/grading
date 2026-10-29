@@ -9,6 +9,8 @@
 <x-dc>
 <helmet>
 <title>Grading – Sve za Vaše kupatilo | Pančevo</title>
+<meta name="description" content="Salon opreme za kupatila u Pančevu od 1994. Sanitarija, baterije, tuš kabine i kade, keramičke pločice, bojleri i kupatilski nameštaj. Zmaj Jove Jovanovića 28, tel. 013 317 900.">
+<meta name="theme-color" content="#F7F5F1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -23,8 +25,10 @@ input,textarea{font-family:inherit;font-size:16px}
 :focus-visible{outline:2px solid #2E5A66;outline-offset:2px}
 @keyframes brandScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.brand-track{animation:none!important}*{scroll-behavior:auto!important}}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@keyframes gr-ripple{to{transform:scale(1);opacity:0}}
 html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-#cat-chips::-webkit-scrollbar,#rev-track::-webkit-scrollbar{display:none}
+#cat-chips::-webkit-scrollbar,#cat-track::-webkit-scrollbar,#about-track::-webkit-scrollbar,#rev-track::-webkit-scrollbar{display:none}
 </style>
 </helmet>
 
@@ -43,18 +47,18 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
             </div>
           </sc-for>
           <sc-if value="{{ searchCompact }}" hint-placeholder-val="{{ false }}">
-            <button onClick="{{ openSearch }}" aria-label="Pretraga" style="width:44px;height:44px;border:1px solid #D6D0C6;background:#FFFFFF;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#1E1D1B;cursor:pointer" style-hover="border-color:{{ accent }};color:{{ accent }}"><span aria-hidden="true" style="position:relative;width:16px;height:16px;flex-shrink:0;display:block"><span style="position:absolute;left:0;top:0;width:11px;height:11px;border:2px solid currentColor;border-radius:50%;box-sizing:border-box"></span><span style="position:absolute;left:10px;top:9px;width:2px;height:7px;background:currentColor;transform:rotate(-45deg);border-radius:1px"></span></span></button>
+            <button onClick="{{ openSearch }}" aria-label="Pretraga" style="width:44px;height:44px;border:1px solid #D6D0C6;background:#FFFFFF;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#1E1D1B;cursor:pointer;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)"><span aria-hidden="true" style="position:relative;width:16px;height:16px;flex-shrink:0;display:block"><span style="position:absolute;left:0;top:0;width:11px;height:11px;border:2px solid currentColor;border-radius:50%;box-sizing:border-box"></span><span style="position:absolute;left:10px;top:9px;width:2px;height:7px;background:currentColor;transform:rotate(-45deg);border-radius:1px"></span></span></button>
           </sc-if>
           <sc-if value="{{ searchWide }}" hint-placeholder-val="{{ true }}">
-          <button onClick="{{ openSearch }}" style="display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;width:clamp(180px,16vw,240px);border:1px solid #D6D0C6;background:#FFFFFF;border-radius:999px;color:#6B665E;font-size:14px;cursor:text" style-hover="border-color:{{ accent }}"><span aria-hidden="true" style="position:relative;width:16px;height:16px;flex-shrink:0;display:block"><span style="position:absolute;left:0;top:0;width:11px;height:11px;border:2px solid currentColor;border-radius:50%;box-sizing:border-box"></span><span style="position:absolute;left:10px;top:9px;width:2px;height:7px;background:currentColor;transform:rotate(-45deg);border-radius:1px"></span></span><span>Pretražite asortiman</span></button>
+          <button onClick="{{ openSearch }}" style="display:flex;align-items:center;gap:10px;height:44px;padding:0 16px;width:clamp(180px,16vw,240px);border:1px solid #D6D0C6;background:#FFFFFF;border-radius:999px;color:#6B665E;font-size:14px;cursor:text;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)"><span aria-hidden="true" style="position:relative;width:16px;height:16px;flex-shrink:0;display:block"><span style="position:absolute;left:0;top:0;width:11px;height:11px;border:2px solid currentColor;border-radius:50%;box-sizing:border-box"></span><span style="position:absolute;left:10px;top:9px;width:2px;height:7px;background:currentColor;transform:rotate(-45deg);border-radius:1px"></span></span><span>Pretražite asortiman</span></button>
           </sc-if>
-          <a href="tel:+38113317900" style="background:{{ accent }};color:#FFFFFF;padding:12px 18px;border-radius:{{ r1 }};font-weight:600;white-space:nowrap" style-hover="background:{{ accentDark }};color:#FFFFFF">013 317 900</a>
+          <a href="tel:+38113317900" style="display:flex;align-items:center;gap:8px;background:{{ accent }};color:#FFFFFF;padding:12px 18px;border-radius:{{ r1 }};font-weight:600;white-space:nowrap;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentDark }};color:#FFFFFF;box-shadow:0 6px 16px rgba(30,29,27,0.16)" style-active="background:{{ accentDark }};color:#FFFFFF;transform:scale(0.98);box-shadow:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>013 317 900</a>
         </nav>
       </sc-if>
       <sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-          <button onClick="{{ openSearch }}" aria-label="Pretraga" style="width:44px;height:44px;border:1px solid #D6D0C6;background:#FFFFFF;border-radius:{{ r1 }};display:flex;align-items:center;justify-content:center;color:#1E1D1B;cursor:pointer"><span aria-hidden="true" style="position:relative;width:16px;height:16px;flex-shrink:0;display:block"><span style="position:absolute;left:0;top:0;width:11px;height:11px;border:2px solid currentColor;border-radius:50%;box-sizing:border-box"></span><span style="position:absolute;left:10px;top:9px;width:2px;height:7px;background:currentColor;transform:rotate(-45deg);border-radius:1px"></span></span></button>
-          <button onClick="{{ toggleMenu }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpen }}" style="height:44px;padding:0 14px 0 12px;border:1px solid #D6D0C6;background:{{ menuBtnBg }};color:{{ menuBtnFg }};border-radius:{{ r1 }};display:flex;align-items:center;gap:10px;cursor:pointer;font-size:15px;font-weight:600">
+          <button onClick="{{ openSearch }}" aria-label="Pretraga" style="width:44px;height:44px;border:1px solid #D6D0C6;background:#FFFFFF;border-radius:{{ r1 }};display:flex;align-items:center;justify-content:center;color:#1E1D1B;cursor:pointer;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)"><span aria-hidden="true" style="position:relative;width:16px;height:16px;flex-shrink:0;display:block"><span style="position:absolute;left:0;top:0;width:11px;height:11px;border:2px solid currentColor;border-radius:50%;box-sizing:border-box"></span><span style="position:absolute;left:10px;top:9px;width:2px;height:7px;background:currentColor;transform:rotate(-45deg);border-radius:1px"></span></span></button>
+          <button onClick="{{ toggleMenu }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpen }}" style="height:44px;padding:0 14px 0 12px;border:1px solid #D6D0C6;background:{{ menuBtnBg }};color:{{ menuBtnFg }};border-radius:{{ r1 }};display:flex;align-items:center;gap:10px;cursor:pointer;font-size:15px;font-weight:600;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)">
             <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
               <span aria-hidden="true" style="display:flex;flex-direction:column;gap:4px"><span style="display:block;width:16px;height:2px;background:currentColor"></span><span style="display:block;width:16px;height:2px;background:currentColor"></span><span style="display:block;width:16px;height:2px;background:currentColor"></span></span>
             </sc-if>
@@ -93,7 +97,7 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
               <span style="font-size:14px;color:#6B665E">Često traženo</span>
               <div style="display:flex;gap:8px;flex-wrap:wrap">
                 <sc-for list="{{ suggestions }}" as="sg" hint-placeholder-count="6">
-                  <button onClick="{{ sg.pick }}" style="border:1px solid #E4DFD7;background:#F7F5F1;padding:9px 14px;border-radius:999px;font-size:14px;color:#1E1D1B;cursor:pointer;min-height:40px" style-hover="border-color:{{ accent }};color:{{ accent }}">{{ sg.label }}</button>
+                  <button onClick="{{ sg.pick }}" style="border:1px solid #E4DFD7;background:#F7F5F1;padding:9px 14px;border-radius:999px;font-size:14px;color:#1E1D1B;cursor:pointer;min-height:44px" style-hover="border-color:{{ accent }};color:{{ accent }}">{{ sg.label }}</button>
                 </sc-for>
               </div>
             </div>
@@ -137,8 +141,8 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
         <span style="display:flex;align-items:center;gap:8px;font-weight:600;color:{{ openColor }}"><span style="width:8px;height:8px;border-radius:50%;background:{{ openColor }}"></span>{{ openLabel }}</span>
         <span style="color:#45423D;line-height:1.5">Pon–pet 08–19 h · Subota 08–14 h<br>Zmaj Jove Jovanovića 28, Pančevo</span>
         <div style="display:flex;gap:8px">
-          <a href="https://www.instagram.com/grading_kupatila/" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid #D6D0C6;color:#1E1D1B;border-radius:{{ r1 }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=61566776700199" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid #D6D0C6;color:#1E1D1B;border-radius:{{ r1 }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"></path></svg>Facebook</a>
+          <a href="https://www.instagram.com/grading_kupatila/" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid #D6D0C6;color:#1E1D1B;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61566776700199" target="_blank" rel="noopener" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:1px solid #D6D0C6;color:#1E1D1B;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"></path></svg>Facebook</a>
         </div>
       </div>
     </div>
@@ -149,24 +153,26 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
     <sc-if value="{{ isHomeA }}" hint-placeholder-val="{{ true }}">
       <section data-screen-label="Početna A" style="max-width:1320px;margin:0 auto;padding:clamp(12px,2vw,24px) clamp(12px,2vw,24px) 0">
         <div onTouchStart="{{ heroTouchStart }}" onTouchEnd="{{ heroTouchEnd }}" onMouseEnter="{{ heroPause }}" onMouseLeave="{{ heroResume }}" style="position:relative;min-height:clamp(460px,64vh,640px);display:flex;align-items:flex-end;overflow:hidden;border-radius:{{ r2 }};background:#3A3833">
-          <div role="img" aria-label="Salon Grading" style="position:absolute;inset:0;width:100%;height:100%;background-image:url('{{ heroSrc }}');background-size:cover;background-position:center;background-repeat:no-repeat"></div>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(22,21,19,0.75),rgba(22,21,19,0.05) 70%)"></div>
-          <div style="position:relative;width:100%;padding:clamp(24px,5vw,64px);color:#FFFFFF">
+          <sc-for list="{{ heroSlides }}" as="sl" hint-placeholder-count="1">
+            <div role="img" aria-label="Salon Grading" aria-hidden="{{ sl.hidden }}" style="position:absolute;inset:0;background-image:url('{{ sl.src }}');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:{{ sl.op }};transform:scale({{ sl.sc }});transition:opacity 1s ease, transform 6s ease-out"></div>
+          </sc-for>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(22,21,19,0.88) 0%,rgba(22,21,19,0.62) 38%,rgba(22,21,19,0.18) 72%,rgba(22,21,19,0.08) 100%),linear-gradient(to right,rgba(22,21,19,0.45),rgba(22,21,19,0) 65%)"></div>
+          <div style="position:relative;width:100%;padding:clamp(24px,5vw,64px);color:#FFFFFF;text-shadow:0 1px 18px rgba(0,0,0,0.35)">
             <h1 style="font-family:{{ displayFont }};font-weight:400;font-size:clamp(44px,7vw,96px);line-height:0.98;margin:0 0 18px;max-width:760px;text-wrap:balance">Sve za Vaše kupatilo</h1>
             <p style="font-size:clamp(17px,1.5vw,20px);line-height:1.5;margin:0 0 28px;color:#F1EEE8;max-width:none;text-wrap:balance">Salon opreme za kupatila u Pančevu, od 1994. godine.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <a href="#asortiman" onClick="{{ toCats }}" style="flex:1 1 200px;max-width:280px;text-align:center;background:#FFFFFF;color:#1E1D1B;padding:15px 24px;font-weight:600;border-radius:{{ r1 }}" style-hover="background:#E9E5DE;color:#1E1D1B">Pogledajte asortiman</a>
-              <a href="tel:+38113317900" style="flex:1 1 200px;max-width:280px;text-align:center;border:1px solid rgba(255,255,255,0.7);color:#FFFFFF;padding:15px 24px;font-weight:600;border-radius:{{ r1 }}" style-hover="background:rgba(255,255,255,0.12);color:#FFFFFF">Pozovite 013 317 900</a>
+              <a href="#asortiman" onClick="{{ toCats }}" data-cta="1" style="flex:1 1 200px;max-width:280px;text-align:center;text-shadow:none;background:#FFFFFF;color:#1E1D1B;padding:15px 24px;font-weight:600;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#EDE9E2;color:#1E1D1B" style-active="background:#E2DDD4;transform:scale(0.98)">Pogledajte asortiman</a>
+              <a href="tel:+38113317900" style="flex:1 1 200px;max-width:280px;text-align:center;border:1px solid rgba(255,255,255,0.7);color:#FFFFFF;padding:15px 24px;font-weight:600;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:rgba(255,255,255,0.16);color:#FFFFFF;border-color:#FFFFFF" style-active="background:rgba(255,255,255,0.24);transform:scale(0.98)">Pozovite nas</a>
             </div>
             <div style="display:flex;align-items:center;gap:16px;margin-top:clamp(24px,3vw,32px)">
               <div style="display:flex;gap:6px">
                 <sc-for list="{{ heroDots }}" as="d" hint-placeholder-count="4">
-                  <button onClick="{{ d.go }}" aria-label="{{ d.label }}" style="width:{{ d.w }};height:28px;border:none;padding:12px 0;background:{{ d.bg }};background-clip:content-box;cursor:pointer;transition:width .3s"></button>
+                  <button onClick="{{ d.go }}" aria-label="{{ d.label }}" style="width:{{ d.w }};height:24px;border:none;padding:0;background:transparent;cursor:pointer;display:flex;align-items:center;transition:width .4s ease"><span style="display:block;width:100%;height:3px;border-radius:2px;background:{{ d.bg }};transition:background .4s ease"></span></button>
                 </sc-for>
               </div>
               <div style="margin-left:auto;display:flex;gap:10px">
-                <button onClick="{{ heroPrev }}" aria-label="Prethodna slika" style="flex-shrink:0;width:clamp(44px,4vw,52px);height:clamp(44px,4vw,52px);border-radius:50%;border:1px solid rgba(255,255,255,0.5);background:rgba(22,21,19,0.3);backdrop-filter:blur(4px);color:#FFFFFF;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px" style-hover="background:rgba(22,21,19,0.55)">‹</button>
-                <button onClick="{{ heroNext }}" aria-label="Sledeća slika" style="flex-shrink:0;width:clamp(44px,4vw,52px);height:clamp(44px,4vw,52px);border-radius:50%;border:1px solid rgba(255,255,255,0.5);background:rgba(22,21,19,0.3);backdrop-filter:blur(4px);color:#FFFFFF;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px" style-hover="background:rgba(22,21,19,0.55)">›</button>
+                <button onClick="{{ heroPrev }}" aria-label="Prethodna slika" style="flex-shrink:0;width:clamp(44px,4vw,52px);height:clamp(44px,4vw,52px);border-radius:50%;border:1px solid rgba(255,255,255,0.5);background:rgba(22,21,19,0.3);backdrop-filter:blur(4px);color:#FFFFFF;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:rgba(255,255,255,0.16);color:#FFFFFF;border-color:#FFFFFF" style-active="background:rgba(255,255,255,0.24);transform:scale(0.98)">‹</button>
+                <button onClick="{{ heroNext }}" aria-label="Sledeća slika" style="flex-shrink:0;width:clamp(44px,4vw,52px);height:clamp(44px,4vw,52px);border-radius:50%;border:1px solid rgba(255,255,255,0.5);background:rgba(22,21,19,0.3);backdrop-filter:blur(4px);color:#FFFFFF;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:rgba(255,255,255,0.16);color:#FFFFFF;border-color:#FFFFFF" style-active="background:rgba(255,255,255,0.24);transform:scale(0.98)">›</button>
               </div>
             </div>
           </div>
@@ -200,7 +206,7 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
       <section style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px) 0">
         <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px 24px;flex-wrap:wrap;margin-bottom:clamp(20px,3vw,32px)">
           <h2 style="font-family:{{ displayFont }};font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.05;margin:0">Utisci kupaca</h2>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" style="display:flex;align-items:center;gap:10px;color:#1E1D1B">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;color:#1E1D1B">
             <span style="font-family:{{ displayFont }};font-size:32px;line-height:1">4,5</span>
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="color:#C08A2B;letter-spacing:2px;font-size:14px">★★★★★</span>
@@ -208,11 +214,11 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
             </span>
           </a>
           <div style="display:flex;gap:8px;margin-left:auto">
-            <button onClick="{{ revPrev }}" aria-label="Prethodne recenzije" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0" style-hover="border-color:{{ accent }};color:{{ accent }}">‹</button>
-            <button onClick="{{ revNext }}" aria-label="Sledeće recenzije" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0" style-hover="border-color:{{ accent }};color:{{ accent }}">›</button>
+            <button onClick="{{ revPrev }}" aria-label="Prethodne recenzije" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)">‹</button>
+            <button onClick="{{ revNext }}" aria-label="Sledeće recenzije" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)">›</button>
           </div>
         </div>
-        <div id="rev-track" style="display:flex;gap:clamp(10px,1.4vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px">
+        <div id="rev-track" onMouseEnter="{{ revHold }}" onMouseLeave="{{ revRelease }}" onTouchStart="{{ revHold }}" onTouchEnd="{{ revRelease }}" style="display:flex;gap:clamp(10px,1.4vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px">
           <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="6">
             <figure style="margin:0;flex:0 0 clamp(260px,calc((100% - 32px) / 3),420px);scroll-snap-align:start;background:#FFFFFF;border-radius:{{ r3 }};padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;gap:16px">
               <blockquote style="margin:0;font-size:17px;line-height:1.55;color:#2B2926;text-wrap:pretty">{{ r.t }}</blockquote>
@@ -274,7 +280,7 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
       <section data-screen-label="Kategorija" style="max-width:1320px;margin:0 auto;padding:clamp(20px,3vw,32px) clamp(20px,4vw,48px) 0">
         <div id="cat-chips" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin:0 calc(-1 * clamp(20px,4vw,48px));padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px);scrollbar-width:none">
           <sc-for list="{{ cats }}" as="c" hint-placeholder-count="8">
-            <a href="#" onClick="{{ c.open }}" data-active="{{ c.act }}" style="flex-shrink:0;white-space:nowrap;padding:10px 16px;border-radius:999px;font-size:15px;font-weight:500;min-height:44px;display:flex;align-items:center;background:{{ c.chipBg }};color:{{ c.chipFg }};border:1px solid {{ c.chipBd }}">{{ c.name }}</a>
+            <a href="#" onClick="{{ c.open }}" data-active="{{ c.act }}" style="flex-shrink:0;white-space:nowrap;padding:10px 16px;border-radius:999px;font-size:15px;font-weight:500;min-height:44px;display:flex;align-items:center;background:{{ c.chipBg }};color:{{ c.chipFg }};border:1px solid {{ c.chipBd }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="border-color:#1E1D1B" style-active="transform:scale(0.97)">{{ c.name }}</a>
           </sc-for>
         </div>
         <div style="padding:clamp(32px,4vw,56px) 0 clamp(24px,3vw,36px);max-width:760px">
@@ -282,7 +288,7 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
           <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:#45423D;margin:0;text-wrap:pretty">{{ cat.short }}</p>
           <div style="display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;margin-top:18px">
             <sc-for list="{{ cat.brands }}" as="b" hint-placeholder-count="2">
-              <span style="background:#EDE9E2;padding:6px 12px;font-size:14px;font-weight:500;border-radius:{{ r1 }}">{{ b }}</span>
+              <span style="font-size:15px;font-weight:600;color:#1E1D1B">{{ b }}</span>
             </sc-for>
             <sc-if value="{{ cat.hasMore }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ toggleMore }}" style="border:none;background:transparent;padding:12px 0;color:{{ accent }};font-weight:600;font-size:15px;cursor:pointer;border-bottom:1px solid {{ accent }}">{{ moreLabel }}</button>
@@ -296,21 +302,30 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
             </div>
           </sc-if>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,240px),1fr));gap:clamp(8px,1vw,14px)">
-          <sc-for list="{{ cat.gallery }}" as="g" hint-placeholder-count="8">
-            <button onClick="{{ g.open }}" aria-label="Uvećaj sliku" style="padding:0;border:none;background:#EDE9E2;aspect-ratio:1/1;overflow:hidden;cursor:zoom-in;border-radius:{{ r2 }}">
-              <div role="img" aria-label="{{ g.alt }}" style="width:100%;height:100%;background-image:url('{{ g.thumb }}');background-size:cover;background-position:center;background-repeat:no-repeat"></div>
-            </button>
-          </sc-for>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div id="cat-track" onScroll="{{ catScroll }}" style="position:relative;display:flex;align-items:center;gap:clamp(8px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:8px calc(50% - min(64vw,520px) / 2)">
+            <sc-for list="{{ cat.gallery }}" as="g" hint-placeholder-count="3">
+              <button onClick="{{ g.open }}" aria-label="Uvećaj sliku" style="flex:0 0 min(64vw,520px);scroll-snap-align:center;padding:0;border:none;background:#EDE9E2;aspect-ratio:4/3;overflow:hidden;cursor:zoom-in;border-radius:{{ r2 }};opacity:{{ g.op }};transform:scale({{ g.sc }});transition:opacity .5s ease, transform .5s ease;box-shadow:{{ g.sh }}">
+                <div role="img" aria-label="{{ g.alt }}" style="width:100%;height:100%;background-image:url('{{ g.thumb }}');background-size:cover;background-position:center;background-repeat:no-repeat"></div>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <span style="font-size:14px;color:#5E5A54;font-variant-numeric:tabular-nums">{{ catCount }}</span>
+            <div style="display:flex;gap:8px">
+              <button onClick="{{ catPrev }}" aria-label="Prethodna slika" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)">‹</button>
+              <button onClick="{{ catNext }}" aria-label="Sledeća slika" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)">›</button>
+            </div>
+          </div>
         </div>
         <div style="margin-top:clamp(32px,4vw,56px);background:#FFFFFF;border:1px solid #E4DFD7;border-radius:{{ r2 }};padding:clamp(20px,3vw,32px);display:flex;justify-content:space-between;align-items:center;gap:16px 32px;flex-wrap:wrap">
           <div style="display:flex;flex-direction:column;gap:4px">
             <span style="font-family:{{ displayFont }};font-size:clamp(24px,2.4vw,32px);line-height:1.15">Ceo izbor je u salonu</span>
             <span style="font-size:15px;color:#5E5A54">Pozovite za dostupnost modela ili dođite u Zmaj Jove Jovanovića 28.</span>
           </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a href="tel:+38113317900" style="flex:1 1 150px;text-align:center;background:{{ accent }};color:#FFFFFF;padding:14px 22px;font-weight:600;border-radius:{{ r1 }}" style-hover="background:{{ accentDark }};color:#FFFFFF">013 317 900</a>
-            <a href="#" onClick="{{ goContact }}" style="flex:1 1 150px;text-align:center;border:1px solid {{ accent }};padding:14px 22px;font-weight:600;border-radius:{{ r1 }}">Kako do nas</a>
+          <div style="display:flex;gap:clamp(6px,2vw,10px);flex:1 1 340px;max-width:440px;min-width:0">
+            <a href="tel:+38113317900" style="flex:1 1 0;min-width:0;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:clamp(4px,1vw,8px);background:{{ accent }};color:#FFFFFF;padding:14px clamp(8px,2vw,22px);font-size:clamp(14px,4vw,16px);font-weight:600;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentDark }};color:#FFFFFF;box-shadow:0 6px 16px rgba(30,29,27,0.16)" style-active="background:{{ accentDark }};color:#FFFFFF;transform:scale(0.98);box-shadow:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>013 317 900</a>
+            <a href="#" onClick="{{ goContact }}" data-cta="1" style="flex:1 1 0;min-width:0;white-space:nowrap;display:flex;align-items:center;justify-content:center;border:1px solid {{ accent }};color:{{ accent }};padding:14px clamp(8px,2vw,22px);font-size:clamp(14px,4vw,16px);font-weight:600;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentSoft }};color:{{ accentDark }};border-color:{{ accentDark }}" style-active="background:{{ accentSoft }};transform:scale(0.98)">Kako do nas</a>
           </div>
         </div>
       </section>
@@ -334,58 +349,74 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
             </div>
           </sc-for>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(30%,200px),1fr));gap:clamp(6px,1vw,12px)">
-          <sc-for list="{{ aboutGallery }}" as="g" hint-placeholder-count="12">
-            <button onClick="{{ g.open }}" aria-label="Uvećaj sliku" style="padding:0;border:none;background:#EDE9E2;aspect-ratio:1/1;overflow:hidden;cursor:zoom-in;border-radius:{{ r2 }}">
-              <div role="img" aria-label="Salon Grading" style="width:100%;height:100%;background-image:url('{{ g.thumb }}');background-size:cover;background-position:center;background-repeat:no-repeat"></div>
-            </button>
-          </sc-for>
+        <div style="display:flex;flex-direction:column;gap:16px" onMouseEnter="{{ abHold }}" onMouseLeave="{{ abRelease }}" onTouchStart="{{ abHold }}" onTouchEnd="{{ abRelease }}">
+          <div id="about-track" onScroll="{{ abScroll }}" style="position:relative;display:flex;align-items:center;gap:clamp(8px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:8px calc(50% - min(64vw,520px) / 2)">
+            <sc-for list="{{ aboutGallery }}" as="g" hint-placeholder-count="3">
+              <button onClick="{{ g.open }}" aria-label="Uvećaj sliku" style="flex:0 0 min(64vw,520px);scroll-snap-align:center;padding:0;border:none;background:#EDE9E2;aspect-ratio:4/3;overflow:hidden;cursor:zoom-in;border-radius:{{ r2 }};opacity:{{ g.op }};transform:scale({{ g.sc }});transition:opacity .6s ease, transform .6s ease;box-shadow:{{ g.sh }}">
+                <div role="img" aria-label="Salon Grading" style="width:100%;height:100%;background-image:url('{{ g.thumb }}');background-size:cover;background-position:center;background-repeat:no-repeat;transform:scale({{ g.zoom }});transition:transform 4s ease-out"></div>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <span style="font-size:14px;color:#5E5A54;font-variant-numeric:tabular-nums">{{ abCount }}</span>
+            <div style="display:flex;gap:8px">
+              <button onClick="{{ abPrev }}" aria-label="Prethodna slika" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)">‹</button>
+              <button onClick="{{ abNext }}" aria-label="Sledeća slika" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 3px;flex-shrink:0;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.97)">›</button>
+            </div>
+          </div>
         </div>
       </section>
     </sc-if>
 
     <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
       <section data-screen-label="Kontakt" style="max-width:1320px;margin:0 auto;padding:clamp(36px,5vw,72px) clamp(20px,4vw,48px) 0">
-        <h1 style="font-family:{{ displayFont }};font-weight:400;font-size:clamp(42px,5.6vw,76px);line-height:1;margin:0 0 clamp(28px,4vw,48px)">Kontakt</h1>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,4vw,64px);align-items:start">
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="tel:+38113317900" style="background:#FFFFFF;border:1px solid #E4DFD7;border-radius:{{ r2 }};padding:18px 20px;color:#1E1D1B;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap" style-hover="border-color:{{ accent }};color:#1E1D1B"><span style="font-size:15px;color:#5E5A54">Telefon</span><span style="font-size:20px;font-weight:600">013 317 900</span></a>
-            <a href="tel:+38113317797" style="background:#FFFFFF;border:1px solid #E4DFD7;border-radius:{{ r2 }};padding:18px 20px;color:#1E1D1B;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap" style-hover="border-color:{{ accent }};color:#1E1D1B"><span style="font-size:15px;color:#5E5A54">Telefon 2</span><span style="font-size:20px;font-weight:600">013 317 797</span></a>
-            <a href="mailto:grading.doo@gmail.com" style="background:#FFFFFF;border:1px solid #E4DFD7;border-radius:{{ r2 }};padding:18px 20px;color:#1E1D1B;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap" style-hover="border-color:{{ accent }};color:#1E1D1B"><span style="font-size:15px;color:#5E5A54">Email</span><span style="font-size:18px;font-weight:600;overflow-wrap:anywhere">grading.doo@gmail.com</span></a>
-            
-            <div style="display:flex;gap:10px;margin-top:6px">
-              <a href="https://www.instagram.com/grading_kupatila/" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 14px;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;border-radius:{{ r2 }};font-weight:500" style-hover="border-color:{{ accent }};color:{{ accent }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>Instagram</a>
-              <a href="https://www.facebook.com/profile.php?id=61566776700199" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 14px;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;border-radius:{{ r2 }};font-weight:500" style-hover="border-color:{{ accent }};color:{{ accent }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"></path></svg>Facebook</a>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(28px,4vw,48px);max-width:640px">
+          <h1 style="font-family:{{ displayFont }};font-weight:400;font-size:clamp(42px,5.6vw,76px);line-height:1;margin:0">Kontakt</h1>
+          <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:#45423D;margin:0;text-wrap:pretty">Pozovite nas, pošaljite upit ili dođite u salon.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,80px);align-items:start">
+          <div style="display:flex;flex-direction:column">
+            <div style="border-top:1px solid #E4DFD7">
+              <a href="tel:+38113317900" style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4DFD7;color:#1E1D1B;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease" style-hover="color:{{ accent }}"><span style="width:44px;height:44px;border-radius:50%;background:{{ accentSoft }};color:{{ accent }};display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:13px;color:#6B665E">Telefon</span><span style="font-size:clamp(17px,1.6vw,20px);font-weight:600;overflow-wrap:anywhere">013 317 900</span></span><span aria-hidden="true" style="margin-left:auto;font-size:20px;color:#A8A399">›</span></a>
+              <a href="tel:+38113317797" style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4DFD7;color:#1E1D1B;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease" style-hover="color:{{ accent }}"><span style="width:44px;height:44px;border-radius:50%;background:{{ accentSoft }};color:{{ accent }};display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:13px;color:#6B665E">Drugi broj</span><span style="font-size:clamp(17px,1.6vw,20px);font-weight:600;overflow-wrap:anywhere">013 317 797</span></span><span aria-hidden="true" style="margin-left:auto;font-size:20px;color:#A8A399">›</span></a>
+              <a href="mailto:grading.doo@gmail.com" style="display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #E4DFD7;color:#1E1D1B;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease" style-hover="color:{{ accent }}"><span style="width:44px;height:44px;border-radius:50%;background:{{ accentSoft }};color:{{ accent }};display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:13px;color:#6B665E">Email</span><span style="font-size:clamp(17px,1.6vw,20px);font-weight:600;overflow-wrap:anywhere">grading.doo@gmail.com</span></span><span aria-hidden="true" style="margin-left:auto;font-size:20px;color:#A8A399">›</span></a>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:24px">
+              <span style="font-size:14px;color:#6B665E">Pratite nas</span>
+              <a href="https://www.instagram.com/grading_kupatila/" target="_blank" rel="noopener" aria-label="Instagram" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;display:flex;align-items:center;justify-content:center;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.95)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg></a>
+              <a href="https://www.facebook.com/profile.php?id=61566776700199" target="_blank" rel="noopener" aria-label="Facebook" style="width:44px;height:44px;border-radius:50%;border:1px solid #D6D0C6;background:#FFFFFF;color:#1E1D1B;display:flex;align-items:center;justify-content:center;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#F7F5F1;border-color:{{ accent }};color:{{ accent }}" style-active="background:#EDE9E2;transform:scale(0.95)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"></path></svg></a>
             </div>
           </div>
-          <div style="background:#FFFFFF;border:1px solid #E4DFD7;border-radius:{{ r2 }};padding:clamp(22px,3vw,40px)">
+          <div style="background:#FFFFFF;border:1px solid #E4DFD7;border-radius:{{ r3 }};padding:clamp(22px,3vw,40px)">
             <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
               <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:16px">
-                <h2 style="font-family:{{ displayFont }};font-weight:400;font-size:clamp(28px,2.8vw,36px);margin:0">Pošaljite upit</h2>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <h2 style="font-family:{{ displayFont }};font-weight:400;font-size:clamp(28px,2.8vw,36px);margin:0">Pošaljite upit</h2>
+                  <span style="font-size:15px;color:#5E5A54">Napišite šta vas zanima, javićemo vam se.</span>
+                </div>
                 <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600">Ime i prezime
-                  <input name="ime" required="" autocomplete="name" style="height:50px;padding:0 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400">
+                  <input name="ime" required="" autocomplete="name" style="height:50px;padding:0 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400;font-size:16px;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease" style-focus="border-color:{{ accent }};background:#FFFFFF;outline:none">
                 </label>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px">
                   <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600">Telefon
-                    <input name="tel" type="tel" inputmode="tel" required="" autocomplete="tel" style="height:50px;padding:0 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400">
+                    <input name="tel" type="tel" inputmode="tel" required="" autocomplete="tel" style="height:50px;padding:0 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400;font-size:16px;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease" style-focus="border-color:{{ accent }};background:#FFFFFF;outline:none">
                   </label>
-                  <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600">Email
-                    <input name="email" type="email" inputmode="email" required="" autocomplete="email" style="height:50px;padding:0 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400">
+                  <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600"><span>Email <span style="font-weight:400;color:#6B665E">(nije obavezno)</span></span>
+                    <input name="email" type="email" inputmode="email" autocomplete="email" style="height:50px;padding:0 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400;font-size:16px;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease" style-focus="border-color:{{ accent }};background:#FFFFFF;outline:none">
                   </label>
                 </div>
                 <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600">Poruka
-                  <textarea name="poruka" required="" rows="4" style="padding:12px 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400;resize:vertical"></textarea>
+                  <textarea name="poruka" required="" rows="4" style="padding:12px 14px;border:1px solid #CFC8BC;background:#FBFAF8;border-radius:{{ r1 }};font-weight:400;font-size:16px;resize:vertical;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease" style-focus="border-color:{{ accent }};background:#FFFFFF;outline:none"></textarea>
                 </label>
                 <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-                <button type="submit" style="height:52px;border:none;background:{{ accent }};color:#FFFFFF;font-size:16px;font-weight:600;border-radius:{{ r1 }};cursor:pointer" style-hover="background:{{ accentDark }}">Pošalji upit</button>
-                <span style="font-size:13px;color:#6B665E">Sva polja su obavezna.</span>
+                <button type="submit" data-cta="1" style="height:52px;border:none;background:{{ accent }};color:#FFFFFF;font-size:16px;font-weight:600;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentDark }};color:#FFFFFF;box-shadow:0 6px 16px rgba(30,29,27,0.16)" style-active="background:{{ accentDark }};color:#FFFFFF;transform:scale(0.98);box-shadow:none">Pošalji upit</button>
               </form>
             </sc-if>
             <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
               <div style="display:flex;flex-direction:column;gap:12px;padding:16px 0">
                 <h2 style="font-family:{{ displayFont }};font-weight:400;font-size:36px;margin:0">Upit je poslat.</h2>
                 <p style="font-size:17px;color:#45423D;margin:0;line-height:1.55">Javićemo vam se uskoro. Ako je hitno, pozovite 013 317 900.</p>
-                <button onClick="{{ resetForm }}" style="align-self:flex-start;margin-top:6px;border:1px solid {{ accent }};background:transparent;color:{{ accent }};padding:12px 18px;font-weight:600;cursor:pointer;border-radius:{{ r1 }}">Pošalji novi upit</button>
+                <button onClick="{{ resetForm }}" style="align-self:flex-start;margin-top:6px;border:1px solid {{ accent }};background:transparent;color:{{ accent }};padding:12px 18px;font-weight:600;border-radius:{{ r1 }};transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentSoft }};color:{{ accentDark }};border-color:{{ accentDark }}" style-active="background:{{ accentSoft }};transform:scale(0.98)">Pošalji novi upit</button>
               </div>
             </sc-if>
           </div>
@@ -416,8 +447,8 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
               </div>
             </div>
             <div style="display:flex;gap:10px;flex-wrap:wrap;flex:1 1 320px;max-width:460px">
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:8px;background:{{ accent }};color:#FFFFFF;padding:14px 22px;font-weight:600;border-radius:{{ r1 }}" style-hover="background:{{ accentDark }};color:#FFFFFF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Otvori u Google mapama</a>
-              <a href="tel:+38113317900" style="flex:1 1 160px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid {{ accent }};padding:14px 22px;font-weight:600;border-radius:{{ r1 }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>013 317 900</a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" rel="noopener" data-cta="1" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:8px;background:{{ accent }};color:#FFFFFF;padding:14px 22px;font-weight:600;border-radius:{{ r1 }};position:relative;overflow:hidden;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentDark }};color:#FFFFFF;box-shadow:0 6px 16px rgba(30,29,27,0.16)" style-active="background:{{ accentDark }};color:#FFFFFF;transform:scale(0.98);box-shadow:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Otvori u Google mapama</a>
+              <a href="tel:+38113317900" data-cta="1" style="flex:1 1 160px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid {{ accent }};padding:14px 22px;font-weight:600;border-radius:{{ r1 }};color:{{ accent }};position:relative;overflow:hidden;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentSoft }};color:{{ accentDark }};border-color:{{ accentDark }}" style-active="background:{{ accentSoft }};transform:scale(0.98)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>013 317 900</a>
             </div>
           </div>
         </div>
@@ -427,34 +458,35 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
 
   <footer style="background:#1E1D1B;color:#D9D4CB;margin-top:clamp(64px,9vw,120px);font-size:15px;line-height:1.5">
     <div style="max-width:1320px;margin:0 auto;padding:clamp(36px,4vw,48px) clamp(20px,4vw,48px) {{ footPb }}">
-      <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:28px clamp(32px,5vw,72px)">
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <div style="background:#F7F5F1;padding:8px 12px;align-self:flex-start;border-radius:{{ r1 }}">
-            <img src="https://grading.co.rs/media/grading-logo.png" alt="Grading kupatila" style="height:28px;width:auto;max-width:100%;object-fit:contain">
-          </div>
-          <span style="font-family:{{ displayFont }};font-size:22px;line-height:1.2;color:#D9D4CB">Sve za Vaše kupatilo,<br>od 1994. godine</span>
-        </div>
-        <div style="display:contents">
-          <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start;gap:36px clamp(32px,6vw,96px)">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:380px">
+          <div style="background:#F7F5F1;padding:8px 12px;align-self:flex-start;border-radius:{{ r1 }}"><img src="https://grading.co.rs/media/grading-logo.png" alt="Grading kupatila" style="height:28px;width:auto;max-width:100%;object-fit:contain"></div><span style="font-family:{{ displayFont }};font-size:22px;line-height:1.2;color:#D9D4CB">Sve za Vaše kupatilo,<br>od 1994. godine</span>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:6px">
             <div style="display:flex;align-items:flex-start;gap:10px"><span style="color:#8FB3BC;margin-top:1px;display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span><span>Pon–pet 08–19 h<br>Subota 08–14 h<br><span style="color:#A8A399">Nedeljom ne radimo</span></span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px"><span style="color:#8FB3BC;margin-top:1px;display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" style="color:#D9D4CB;display:inline-block;padding:10px 0;margin:-10px 0" style-hover="color:#FFFFFF">Zmaj Jove Jovanovića 28, Pančevo</a></div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:14px;min-width:0;margin-left:{{ footMl }}">
+            <div style="display:flex;align-items:flex-start;gap:10px"><span style="color:#8FB3BC;margin-top:1px;display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" rel="noopener" style="color:#D9D4CB;display:inline-block;padding:10px 0;margin:-10px 0" style-hover="color:#FFFFFF">Zmaj Jove Jovanovića 28, Pančevo</a></div>
             <div style="display:flex;align-items:flex-start;gap:10px"><span style="color:#8FB3BC;margin-top:1px;display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg></span><span style="display:flex;flex-wrap:wrap;gap:0 8px;white-space:nowrap"><a href="tel:+38113317900" style="color:#D9D4CB;display:inline-block;padding:10px 0;margin:-10px 0" style-hover="color:#FFFFFF">013 317 900</a><span style="color:#6B665E">/</span><a href="tel:+38113317797" style="color:#D9D4CB;display:inline-block;padding:10px 0;margin:-10px 0" style-hover="color:#FFFFFF">013 317 797</a></span></div>
             <div style="display:flex;align-items:flex-start;gap:10px"><span style="color:#8FB3BC;margin-top:1px;display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span><a href="mailto:grading.doo@gmail.com" style="color:#D9D4CB;overflow-wrap:anywhere;display:inline-block;padding:10px 0;margin:-10px 0" style-hover="color:#FFFFFF">grading.doo@gmail.com</a></div>
-            <div style="display:flex;gap:8px;margin-top:2px"><a href="https://www.instagram.com/grading_kupatila/" target="_blank" aria-label="Instagram" style="width:44px;height:44px;border-radius:50%;border:1px solid #3A3833;color:#D9D4CB;display:flex;align-items:center;justify-content:center" style-hover="border-color:#8FB3BC;color:#FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg></a><a href="https://www.facebook.com/profile.php?id=61566776700199" target="_blank" aria-label="Facebook" style="width:44px;height:44px;border-radius:50%;border:1px solid #3A3833;color:#D9D4CB;display:flex;align-items:center;justify-content:center" style-hover="border-color:#8FB3BC;color:#FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"></path></svg></a></div>
           </div>
+          <div style="display:flex;gap:8px;margin-top:2px"><a href="https://www.instagram.com/grading_kupatila/" target="_blank" rel="noopener" aria-label="Instagram" style="width:44px;height:44px;border-radius:50%;border:1px solid #3A3833;color:#D9D4CB;display:flex;align-items:center;justify-content:center;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#33312D;border-color:#8FB3BC;color:#FFFFFF" style-active="background:#3A3833;transform:scale(0.95)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg></a><a href="https://www.facebook.com/profile.php?id=61566776700199" target="_blank" rel="noopener" aria-label="Facebook" style="width:44px;height:44px;border-radius:50%;border:1px solid #3A3833;color:#D9D4CB;display:flex;align-items:center;justify-content:center;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#33312D;border-color:#8FB3BC;color:#FFFFFF" style-active="background:#3A3833;transform:scale(0.95)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"></path></svg></a></div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:28px clamp(24px,4vw,56px)">
+          <nav aria-label="Asortiman" style="display:flex;flex-direction:column">
+            <span style="font-size:13px;font-weight:600;color:#8FB3BC;margin-bottom:6px">Asortiman</span>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0 24px">
+              <sc-for list="{{ cats }}" as="c" hint-placeholder-count="8">
+                <a href="#" onClick="{{ c.open }}" style="color:#D9D4CB;font-size:15px;padding:5px 0;display:inline-block" style-hover="color:#FFFFFF">{{ c.name }}</a>
+              </sc-for>
+            </div>
+          </nav>
+          <nav aria-label="Stranice" style="display:flex;flex-direction:column">
+            <span style="font-size:13px;font-weight:600;color:#8FB3BC;margin-bottom:6px">Grading</span>
+            <sc-for list="{{ nav }}" as="n" hint-placeholder-count="4">
+              <a href="#" onClick="{{ n.go }}" style="color:#D9D4CB;font-size:15px;padding:5px 0;display:inline-block" style-hover="color:#FFFFFF">{{ n.label }}</a>
+            </sc-for>
+          </nav>
         </div>
       </div>
-      <nav aria-label="Asortiman" style="margin-top:clamp(28px,3vw,40px);padding-top:20px;border-top:1px solid #33312D;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 28px">
-        <span style="font-size:13px;font-weight:600;color:#8FB3BC">Asortiman</span>
-        <div style="display:flex;flex-wrap:wrap;gap:2px 22px;flex:1">
-          <sc-for list="{{ cats }}" as="c" hint-placeholder-count="8">
-            <a href="#" onClick="{{ c.open }}" style="color:#D9D4CB;font-size:14px;white-space:nowrap;padding:6px 0;display:inline-block" style-hover="color:#FFFFFF">{{ c.name }}</a>
-          </sc-for>
-        </div>
-      </nav>
-      <div style="margin-top:20px;padding-top:16px;border-top:1px solid #33312D;display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;align-items:center;font-size:13px;color:#A8A399">
+      <div style="margin-top:clamp(28px,3vw,40px);padding-top:16px;border-top:1px solid #33312D;display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;align-items:center;font-size:13px;color:#A8A399">
         <span>© {{ year }} Grading d.o.o. Pančevo</span>
         <span style="display:flex;align-items:center;gap:10px">Partner saradnik <img src="https://grading.co.rs/media/keramika_kanjiza.jpg" alt="Keramika Kanjiža" loading="lazy" style="height:24px;width:auto;background:#FFFFFF;padding:3px;border-radius:{{ r1 }}"></span>
       </div>
@@ -463,17 +495,17 @@ html{scroll-padding-top:84px;-webkit-text-size-adjust:100%}
 
   <sc-if value="{{ showBar }}" hint-placeholder-val="{{ false }}">
     <nav aria-label="Brze akcije" style="position:fixed;left:0;right:0;bottom:0;z-index:38;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);border-top:1px solid #E4DFD7;padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px;box-shadow:0 -6px 20px rgba(30,29,27,0.06)">
-      <a href="tel:+38113317900" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;border-radius:{{ r2 }};font-size:13px;font-weight:600;background:{{ accent }};color:#FFFFFF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>Pozovite</a>
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;border-radius:{{ r2 }};font-size:13px;font-weight:600;background:#F7F5F1;color:#1E1D1B"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Kako do nas</a>
-      <a href="#" onClick="{{ goContact }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;border-radius:{{ r2 }};font-size:13px;font-weight:600;background:#F7F5F1;color:#1E1D1B"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>Pošalji upit</a>
+      <a href="tel:+38113317900" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;border-radius:{{ r2 }};font-size:13px;font-weight:600;background:{{ accent }};color:#FFFFFF;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:{{ accentDark }};color:#FFFFFF;box-shadow:0 6px 16px rgba(30,29,27,0.16)" style-active="background:{{ accentDark }};color:#FFFFFF;transform:scale(0.98);box-shadow:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"></path></svg>Pozovite</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Grading+Zmaj+Jove+Jovanovi%C4%87a+28+Pan%C4%8Devo" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;border-radius:{{ r2 }};font-size:13px;font-weight:600;background:#F7F5F1;color:#1E1D1B;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#EDE9E2;color:#1E1D1B" style-active="background:#E2DDD4;transform:scale(0.97)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Kako do nas</a>
+      <a href="#" onClick="{{ goContact }}" data-cta="1" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;border-radius:{{ r2 }};font-size:13px;font-weight:600;background:#F7F5F1;color:#1E1D1B;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:#EDE9E2;color:#1E1D1B" style-active="background:#E2DDD4;transform:scale(0.97)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>Pošalji upit</a>
     </nav>
   </sc-if>
 
   <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ lbClose }}" onTouchStart="{{ lbTouchStart }}" onTouchEnd="{{ lbTouchEnd }}" style="position:fixed;inset:0;z-index:60;background:rgba(18,17,16,0.94);display:flex;align-items:center;justify-content:center;padding:clamp(12px,4vw,64px)">
       <div role="img" aria-label="Uvećana slika" style="width:100%;height:100%;background-image:url('{{ lbSrc }}');background-size:contain;background-position:center;background-repeat:no-repeat"></div>
-      <button onClick="{{ lbPrev }}" aria-label="Prethodna" style="position:absolute;left:clamp(8px,2vw,24px);top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:rgba(0,0,0,0.3);color:#FFFFFF;font-size:22px;cursor:pointer">‹</button>
-      <button onClick="{{ lbNext }}" aria-label="Sledeća" style="position:absolute;right:clamp(8px,2vw,24px);top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:rgba(0,0,0,0.3);color:#FFFFFF;font-size:22px;cursor:pointer">›</button>
+      <button onClick="{{ lbPrev }}" aria-label="Prethodna" style="position:absolute;left:clamp(8px,2vw,24px);top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:rgba(0,0,0,0.3);color:#FFFFFF;font-size:22px;cursor:pointer;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:rgba(255,255,255,0.16);color:#FFFFFF;border-color:#FFFFFF" style-active="background:rgba(255,255,255,0.24);transform:scale(0.98)">‹</button>
+      <button onClick="{{ lbNext }}" aria-label="Sledeća" style="position:absolute;right:clamp(8px,2vw,24px);top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);background:rgba(0,0,0,0.3);color:#FFFFFF;font-size:22px;cursor:pointer;transition:background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;cursor:pointer" style-hover="background:rgba(255,255,255,0.16);color:#FFFFFF;border-color:#FFFFFF" style-active="background:rgba(255,255,255,0.24);transform:scale(0.98)">›</button>
       <div style="position:absolute;top:16px;left:20px;color:#D9D4CB;font-size:14px">{{ lbCount }}</div>
       <button onClick="{{ lbClose }}" aria-label="Zatvori" style="position:absolute;top:10px;right:12px;width:48px;height:48px;border:none;background:transparent;color:#FFFFFF;font-size:30px;cursor:pointer">×</button>
     </div>
@@ -568,19 +600,49 @@ class Component extends DCLogic {
       if (e.key === 'ArrowRight') this.step(1);
       if (e.key === 'ArrowLeft') this.step(-1);
     };
-    this.onPop = () => { this.setState({ ...parseHash(), menu: false, search: false, lb: null, more: false }); window.scrollTo(0, 0); };
+    this.onRipple = e => {
+      const el = e.target.closest && e.target.closest('a[href^="tel:"],a[href*="google.com/maps"],[data-cta]');
+      if (!el || el.closest('footer') || this.reduced) return;
+      const r = el.getBoundingClientRect(), size = Math.max(r.width, r.height) * 2.2;
+      const cs = getComputedStyle(el);
+      if (cs.position === 'static') el.style.position = 'relative';
+      el.style.overflow = 'hidden';
+      const dark = /rgb\((2[3-5]\d), ?(2[3-5]\d)/.test(cs.backgroundColor);
+      const sp = document.createElement('span');
+      sp.style.cssText = `position:absolute;left:${e.clientX - r.left - size / 2}px;top:${e.clientY - r.top - size / 2}px;width:${size}px;height:${size}px;border-radius:50%;background:${dark ? 'rgba(30,29,27,0.14)' : 'rgba(255,255,255,0.35)'};transform:scale(0);opacity:1;pointer-events:none;animation:gr-ripple .6s ease-out forwards`;
+      el.appendChild(sp);
+      setTimeout(() => sp.remove(), 650);
+    };
+    document.addEventListener('pointerdown', this.onRipple);
+    this.onPop = () => { this.setState({ ...parseHash(), catI: 0, abI: 0, menu: false, search: false, lb: null, more: false }); window.scrollTo(0, 0); };
     window.addEventListener('resize', this.onResize);
     window.addEventListener('keydown', this.onKey);
     window.addEventListener('popstate', this.onPop);
     if ((location.hash || '').startsWith('#/')) this.setState(parseHash());
     this.reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.startAuto();
+    this.revTimer = setInterval(() => {
+      if (this.state.page !== 'home' || this.reduced || this.revHeld || document.hidden) return;
+      if (this.revTouched && Date.now() - this.revTouched < 10000) return;
+      const el = document.getElementById('rev-track'); if (!el) return;
+      const r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top > window.innerHeight) return;
+      this.revStep(1);
+    }, 6000);
+    this.abTimer = setInterval(() => {
+      if (this.state.page !== 'about' || this.reduced || this.abHeld || document.hidden) return;
+      if (this.abTouched && Date.now() - this.abTouched < 8000) return;
+      this.trackStep('about-track', this.state.abI || 0, 1);
+    }, 4000);
   }
   componentDidUpdate(_, prev) {
     const s = this.state;
     const lock = s.lb || (s.menu && s.w < 1024) || (s.search && s.w < 1024);
     document.body.style.overflow = lock ? 'hidden' : '';
     if (prev.page !== s.page || prev.cat !== s.cat) {
+      const at = document.getElementById('about-track');
+      if (at) { at.style.scrollBehavior = 'auto'; at.scrollLeft = 0; requestAnimationFrame(() => { at.scrollLeft = 0; at.style.scrollBehavior = ''; }); }
+      const ct = document.getElementById('cat-track');
+      if (ct) { ct.style.scrollBehavior = 'auto'; ct.scrollLeft = 0; requestAnimationFrame(() => { ct.scrollLeft = 0; ct.style.scrollBehavior = ''; }); }
       const cur = CATS.find(c => c.slug === s.cat);
       const t = ({ home: 'Grading – Sve za Vaše kupatilo | Pančevo', asort: 'Prodajni asortiman – Grading', about: 'O nama – Grading', contact: 'Kontakt – Grading', cat: (cur ? cur.name : 'Asortiman') + ' – Grading Pančevo' })[s.page];
       setTimeout(() => { document.title = t; }, 50);
@@ -593,7 +655,8 @@ class Component extends DCLogic {
     window.removeEventListener('resize', this.onResize);
     window.removeEventListener('keydown', this.onKey);
     window.removeEventListener('popstate', this.onPop);
-    clearInterval(this.timer);
+    document.removeEventListener('pointerdown', this.onRipple);
+    clearInterval(this.timer); clearInterval(this.abTimer); clearInterval(this.revTimer);
     document.body.style.overflow = '';
   }
   startAuto() {
@@ -608,7 +671,7 @@ class Component extends DCLogic {
       const keepScroll = page === 'cat' && this.state.page === 'cat';
       const hash = page === 'cat' ? '#/asortiman/' + (cat || this.state.cat) : ROUTES[page];
       try { if (location.hash !== hash) history.pushState(null, '', hash); } catch (err) {}
-      this.setState({ page, cat: cat || this.state.cat, menu: false, dd: false, more: false, search: false });
+      this.setState({ catI: 0, abI: 0, page, cat: cat || this.state.cat, menu: false, dd: false, more: false, search: false });
       if (!keepScroll) window.scrollTo(0, 0);
     };
   }
@@ -618,13 +681,51 @@ class Component extends DCLogic {
     const open = close && t >= 8 && t < close;
     return { openLabel: open ? `Otvoreno do ${close} h` : 'Zatvoreno', openColor: open ? '#2F7A4F' : '#A0522D' };
   }
+  centerIdx(el) {
+    const mid = el.getBoundingClientRect().left + el.clientWidth / 2; let i = 0, best = 1e9;
+    [...el.children].forEach((c, k) => { const r = c.getBoundingClientRect(); const d = Math.abs(r.left + r.width / 2 - mid); if (d < best) { best = d; i = k; } });
+    return i;
+  }
+  trackGo(id, i) {
+    const el = document.getElementById(id); if (!el) return;
+    const c = el.children[i]; if (!c) return;
+    el.scrollTo({ left: c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2 });
+  }
+  trackStep(id, cur, d) {
+    const el = document.getElementById(id); if (!el) return;
+    const n = el.children.length; if (n) this.trackGo(id, (cur + d + n) % n);
+  }
+  catGo(i) {
+    const el = document.getElementById('cat-track'); if (!el) return;
+    const c = el.children[i]; if (!c) return;
+    el.scrollTo({ left: c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2 });
+  }
+  catStep(d) {
+    const el = document.getElementById('cat-track'); if (!el) return;
+    const n = el.children.length; if (!n) return;
+    this.catGo(((this.state.catI || 0) + d + n) % n);
+  }
   revStep(d) {
     const el = document.getElementById('rev-track'); if (!el) return;
     const card = el.firstElementChild; const w = card ? card.getBoundingClientRect().width + 16 : el.clientWidth;
     const max = el.scrollWidth - el.clientWidth;
-    if (d > 0 && el.scrollLeft >= max - 4) el.scrollTo({ left: 0 });
-    else if (d < 0 && el.scrollLeft <= 4) el.scrollTo({ left: max });
-    else el.scrollBy({ left: d * w });
+    let to = el.scrollLeft + d * w;
+    if (d > 0 && el.scrollLeft >= max - 4) to = 0;
+    else if (d < 0 && el.scrollLeft <= 4) to = max;
+    to = Math.max(0, Math.min(max, to));
+    if (this.reduced) { el.scrollLeft = to; return; }
+    cancelAnimationFrame(this.revRaf);
+    const from = el.scrollLeft, dist = to - from, dur = Math.abs(dist) > w * 1.5 ? 1100 : 800, t0 = performance.now();
+    const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    el.style.scrollSnapType = 'none'; el.style.scrollBehavior = 'auto';
+    [...el.children].forEach(c => { c.style.transition = 'opacity .5s ease, transform .5s ease'; c.style.opacity = '0.55'; c.style.transform = 'scale(0.97)'; });
+    const tick = now => {
+      const p = Math.min(1, (now - t0) / dur);
+      el.scrollLeft = from + dist * ease(p);
+      if (p < 1) this.revRaf = requestAnimationFrame(tick);
+      else { el.style.scrollSnapType = ''; el.style.scrollBehavior = ''; [...el.children].forEach(c => { c.style.opacity = ''; c.style.transform = ''; }); }
+    };
+    this.revRaf = requestAnimationFrame(tick);
   }
   heroStep(d) {
     this.setState(s => ({ hero: ((s.hero || 0) + d + HERO.length) % HERO.length }));
@@ -707,7 +808,7 @@ class Component extends DCLogic {
       ...T,
       desktopNav: desktop, mobileNav: !desktop, menuOpen: !!(s.menu && !desktop), menuClosed: !(s.menu && !desktop), ddOpen: s.dd && desktop,
       menuLabel: s.menu ? 'Zatvori meni' : 'Otvori meni', menuBtnBg: s.menu ? '#1E1D1B' : '#FFFFFF', menuBtnFg: s.menu ? '#FFFFFF' : '#1E1D1B',
-      searchCompact: desktop && s.w < 1200, searchWide: !desktop || s.w >= 1200,
+      searchCompact: false, searchWide: true,
       showBar: !desktop && !s.lb && !s.search, footPb: desktop ? '20px' : 'calc(96px + env(safe-area-inset-bottom))',
       heroTouchStart: e => { this.tx = e.touches[0].clientX; this.paused = true; },
       heroTouchEnd: e => { const dx = e.changedTouches[0].clientX - (this.tx || 0); this.paused = false; if (Math.abs(dx) > 40) this.heroStep(dx < 0 ? 1 : -1); },
@@ -718,21 +819,30 @@ class Component extends DCLogic {
       ddEnter: () => clearTimeout(this.ddT), ddLeave: () => this.setState({ dd: false }),
       nav, cats,
       cat: { name: cur.name, short: cur.short, paras: cur.paras, brands: cur.brands, hasMore: cur.paras.length > 0,
-        gallery: cur.gallery.map((g, i) => ({ ...g, alt: `${cur.name} – Grading Pančevo`, open: this.openLb(cur.gallery, i) })) },
+        gallery: cur.gallery.map((g, i) => { const on = i === (s.catI || 0); return { ...g, alt: `${cur.name} – Grading Pančevo`, op: on ? 1 : 0.35, sc: on ? 1 : 0.88, sh: on ? '0 18px 40px rgba(30,29,27,0.14)' : 'none', open: on ? this.openLb(cur.gallery, i) : (e => { e.preventDefault(); this.catGo(i); }) }; }) },
       moreOpen: s.more && cur.paras.length > 0, moreLabel: s.more ? 'Manje' : 'Opširnije',
       toggleMore: () => this.setState(st => ({ more: !st.more })),
-      aboutGallery: ABOUT.map((g, i) => ({ ...g, open: this.openLb(ABOUT, i) })),
+      aboutGallery: ABOUT.map((g, i) => { const on = i === (s.abI || 0); return { ...g, op: on ? 1 : 0.35, sc: on ? 1 : 0.88, zoom: on ? 1.06 : 1, sh: on ? '0 18px 40px rgba(30,29,27,0.14)' : 'none', open: on ? this.openLb(ABOUT, i) : (ev => { ev.preventDefault(); this.trackGo('about-track', i); }) }; }),
+      abCount: `${(s.abI || 0) + 1} / ${ABOUT.length}`,
+      abPrev: () => { this.abTouched = Date.now(); this.trackStep('about-track', this.state.abI || 0, -1); },
+      abNext: () => { this.abTouched = Date.now(); this.trackStep('about-track', this.state.abI || 0, 1); },
+      abHold: () => { this.abHeld = true; }, abRelease: () => { this.abHeld = false; this.abTouched = Date.now(); },
+      abScroll: ev => { const i = this.centerIdx(ev.currentTarget); if (i !== this.state.abI) this.setState({ abI: i }); },
       isHome, isHomeA: isHome,
       isAsort: s.page === 'asort', isCat: s.page === 'cat', isAbout: s.page === 'about', isContact: s.page === 'contact',
       showLocation: isHome || s.page === 'contact' || s.page === 'about',
       goHome: this.go('home'), goAsort: this.go('asort'), goAbout: this.go('about'), goContact: this.go('contact'),
       toCats: e => { e.preventDefault(); const el = document.getElementById('asortiman'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); },
       stats: [{ v: `${years}`, l: 'godina postojanja' }, { v: '20+', l: 'brendova' }, { v: '5000+', l: 'zadovoljnih kupaca' }, { v: '6+', l: 'zaposlenih' }],
-      heroSrc: HERO[s.hero || 0],
+      heroSlides: HERO.map((src, i) => { const on = i === (s.hero || 0); return { src, op: on ? 1 : 0, sc: on ? 1.04 : 1, hidden: on ? 'false' : 'true' }; }),
       ...this.openNow(), footMl: desktop ? 'auto' : '0',
-      revPrev: () => this.revStep(-1), revNext: () => this.revStep(1),
+      catPrev: () => this.catStep(-1), catNext: () => this.catStep(1),
+      catScroll: e => { const el = e.currentTarget, mid = el.getBoundingClientRect().left + el.clientWidth / 2; let i = 0, best = 1e9; [...el.children].forEach((c, k) => { const r = c.getBoundingClientRect(); const d = Math.abs(r.left + r.width / 2 - mid); if (d < best) { best = d; i = k; } }); if (i !== this.state.catI) this.setState({ catI: i }); },
+      catCount: `${Math.min((s.catI || 0) + 1, cur.gallery.length)} / ${cur.gallery.length}`,
+      revPrev: () => { this.revTouched = Date.now(); this.revStep(-1); }, revNext: () => { this.revTouched = Date.now(); this.revStep(1); },
+      revHold: () => { this.revHeld = true; }, revRelease: () => { this.revHeld = false; this.revTouched = Date.now(); },
       heroPrev: () => this.heroStep(-1), heroNext: () => this.heroStep(1),
-      heroDots: HERO.map((_, i) => ({ label: `Slika ${i + 1} od ${HERO.length}`, w: i === (s.hero || 0) ? '40px' : '16px', bg: i === (s.hero || 0) ? '#FFFFFF' : 'rgba(255,255,255,0.45)', go: () => this.setState({ hero: i }) })),
+      heroDots: HERO.map((_, i) => ({ label: `Slika ${i + 1} od ${HERO.length}`, w: i === (s.hero || 0) ? '28px' : '10px', bg: i === (s.hero || 0) ? '#FFFFFF' : 'rgba(255,255,255,0.45)', go: () => this.setState({ hero: i }) })),
       ...this.searchVals(cats),
       brands: BRANDS, reviews: REVIEWS,
       brandMarquee: this.marquee || (this.marquee = React.createElement('div', {
